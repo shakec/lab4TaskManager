@@ -13,19 +13,39 @@
             <h1>Task Manager</h1>
         </section>
 
-        <label for="task-name">Task Name</label>
-        <input type="text" id="task-name" name="task-name" placeholder="Enter the task name">
+        <section id="form-section">
+            <h2>Add a New Task</h2>
+        
+            <form action="" id="task-form">
 
-        <label for="category">Category</label>
-        <input type="text" id="category" name="category" placeholder="Enter the category">
+                <label for="task-name">Task Name</label>
+                <input type="text" id="task-name" name="task-name" placeholder="Enter the task name">
 
-        <label for="deadline">Deadline</label>
-        <input type="text" id="deadline" name="deadline" placeholder="Enter the deadline">
+                <label for="category">Category</label>
+                <input type="text" id="category" name="category" placeholder="Enter the category">
 
-        <label for="status">Status</label>
-        <input type="text" id="status" name="status" placeholder="Enter the status">
+                <label for="deadline">Deadline</label>
+                <input type="text" id="deadline" name="deadline" placeholder="Enter the deadline">
 
-        <button id="add-task">Add Task</button>
+                <!-- Update to a dropdown -->
+                <label for="task-status">Status</label>
+                <select name="" id="task-status">
+                    <option value="Not Started">
+                        Not Started
+                    </option>
+                    <option value="In Progress">
+                        In Progress
+                    </option>
+                    <option value="Completed">
+                        Completed
+                    </option>
+                </select>
+
+                <button type="submit">Add Task</button>
+
+            </form>
+        </section>
+        
     </main>
 </body>
 </html>
