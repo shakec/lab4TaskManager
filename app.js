@@ -16,8 +16,6 @@ taskForm.addEventListener('submit', (event) => {
     const taskDeadline = document.getElementById("task-deadline").value
     const taskStatus = document.getElementById("task-status").value
 
-    const appName = "Task Manager"
-
     // 3. create new task object
     const newTask = {
         name: taskName,
@@ -28,6 +26,8 @@ taskForm.addEventListener('submit', (event) => {
 
     // 4. add object to task array
     tasks.push(newTask)
+    // refresh the list
+    displayList()
     // 5. display updated array
     console.log(tasks)
 
@@ -35,15 +35,30 @@ taskForm.addEventListener('submit', (event) => {
     taskForm.reset()
 })
 
+// Display List
+function displayList () {
+    const taskList = document.getElementById("task-list")
 
+    taskList.innerHTML = ""
 
+    // callback method for each element in the array
+    tasks.forEach((item, index) => {
+        // have the DOM create the 'li' element
+        const li = document.createElement('li')
+        li.textContent = JSON.stringify(item) // get and set text inside the element
 
-// Store objects (each task) with props: task name, category, deadline, and status. 
-// Now that task data can be stored, replace with the variable
-// Empty array to push in users tasks
+        // create delete button + logic
+        const deleteBtn = document.createElement('button')
+        deleteBtn.textContent = 'Delete Task'
 
+        // add click event to the delete button
+        deleteBtn.addEventListener('click', () => {
+            // remove single item from the list
+            tasks.splice(index, 1)
+        })
 
-// console.log(appName)
-// console.log(tasks[0].name)
+        li.appendChild(deleteBtn) // add delete to every item
+        taskList.appendChild(li) // add item to the list
+    })
+}
 
-// console.log(tasks.length)
